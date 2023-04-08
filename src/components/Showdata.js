@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Create from './Create'
-import BasicCard from './Userscard'
+
 
 const cardStyle = {
     display: 'flex',
@@ -35,7 +34,7 @@ const Showdata = () => {
 
     const deleteUser = async (id) => {
         try {
-            if (window.confirm("Are Sure to Delete  this Data ?")) {
+            if (window.confirm("Are Sure to Delete this Data ?")) {
                 return await axios.delete(`https://64181f7275be53f451d67f3c.mockapi.io/CRUD/${id}`)
                     .then(() =>
                         getData()
@@ -55,8 +54,6 @@ const Showdata = () => {
         localStorage.setItem("Name",name)
         localStorage.setItem("Age",age)
         localStorage.setItem("Email",email)
-        navigate('/edit')
-
     }
 
     console.log(data);
@@ -102,20 +99,3 @@ const Showdata = () => {
 
 export default Showdata
 
-
-// <div style={cardStyle}>
-//  {users.map((user) => (
-{/* <div className='container'>
-                <div className="card" key={user.id}>
-                    <div className="card" style={{ width: "18rem", }}>
-                        <div className="card-body">
-                            <h5 className="card-title">{user.name}</h5>
-                            <h6 className="card-subtitle mb-2 text-muted">{user.age}</h6>
-                            <p className="card-text">{user.email}</p>
-                            <button className="btn btn-success card-link">Update</button>
-                            <button className="btn btn-primary card-link" onClick={() => deleteUser(user.id)}>delete</button>
-                        </div>
-                    </div>
-                </div>
-    </div> */}
-//  ))}
